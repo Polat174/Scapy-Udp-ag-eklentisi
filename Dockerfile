@@ -6,9 +6,9 @@ RUN apt-get update && \
     apt-get install -y tcpdump libcap-dev && \
     rm -rf /var/lib/apt/lists
 
-COPY bağımlılıklar.txt .
-RUN pip install --no-cache-dir -r bağımlılıklar.txt
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY Plugin.py
+COPY plugin.py .
 
-CMD ["python","Plugin.py"]
+CMD ["python", "plugin.py"]
